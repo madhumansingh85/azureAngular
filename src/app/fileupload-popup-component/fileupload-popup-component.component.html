@@ -1,0 +1,40 @@
+
+<div   
+>
+    <h4 class="modal-title headerMargin">Upload File</h4>
+    <div class="uploadFiles">
+      <!-- <input maxlength="100" type="text" [(ngModel)]="fileName" class="form-control"
+                                  placeholder="Enter Name"  />-->
+      <input
+        class="fileUpload"
+        type="file"
+        id="uploadInputFile"
+        (change)="onFileChange($event)"
+        multiple
+      />
+    </div>
+    <small
+    class="text-danger ml-4"
+  
+  >
+    Accepts only jpg,jpeg,bmp,gif,png file formats</small
+  >
+    <div class="modal-footer footerLine">
+        <button
+          type="button"
+          class="btn btn-apply mr-3 cancel"
+          (click)="onConfirm()"
+          [disabled]="buttonDisable"
+        >
+          Save
+        </button>
+        <button
+          type="button"
+          class="btn btn-apply mr-3 cancel"
+          (click)="activeModal.close('Close click')"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+    

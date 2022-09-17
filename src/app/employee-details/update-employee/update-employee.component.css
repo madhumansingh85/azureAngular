@@ -1,0 +1,32 @@
+.container-fluid{
+    padding:2rem;
+}
+
+.gridContainer{
+    margin-top:2rem;
+    margin-bottom:2rem;
+}
+
+.labelText{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.gridbox{
+    margin-bottom:2rem;
+}
+
+.submitButton{
+    width: 125px;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-right:20px;
+}
+
+.profilepic{
+    max-width: 8%;
+    max-height: 8%;
+    padding-bottom: 30px;
+}

@@ -1,0 +1,68 @@
+.footerLine {
+    background-color: #2e2e38;
+    display: flex;
+    justify-content: flex-end;
+  
+    padding-top: 1%;
+    padding-bottom: 1%;
+    
+  }
+  .cancel {
+    background-color: #ffe600;
+    padding: 5px 19px;
+    color: #1a1a24;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    outline: 0px;
+    height: 40px;
+
+    border-radius: 0;
+  }
+  .modalsstyle {
+    margin-left: 19%;
+   
+  }
+  .Ok {
+    background-color: #ffffff;
+    padding: 5px 24px;
+    color: #2e2e38;
+    font-size: 16px;
+    font-weight: 500;
+    height: 40px;
+    width: 116px;
+    border: 1px solid #1a1a24;
+  }
+  .closeIcon {
+    width: 59%;
+  }
+  
+  .noOutline {
+    outline: none;
+  }
+  
+  .fileUpload {
+    padding-left: 7px !important;
+  
+    align-self: center;
+    outline: 0;
+  }
+  
+  .uploadFiles {
+    display: flex;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  
+  .headerMargin {
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+  
+  button:disabled {
+    cursor: not-allowed;
+  }
+  
+
+  

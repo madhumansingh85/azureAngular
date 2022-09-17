@@ -1,0 +1,192 @@
+<div class="mainContainer">
+  <div *ngIf="allowAccess == false">
+    <div class="headertext">Employee List</div>
+    <div>
+      <button class="pointcloudButton" (click)="onViewPointcloud()">
+        <img
+                      src="../../assets/images/globe.png"
+                      alt="edit"
+                      class="pencilIcon"
+                    />
+          <span>Show Map</span>
+      </button>
+    </div>
+    <div class="userTable">
+      <table class="tableStyle">
+        <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Employee ID</th>
+            <th>Address</th>
+            <th>Mobile No</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Updated on</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="employeeList && employeeList.length > 0">
+            <tr *ngFor="let d of employeeList; let i = index">
+              <td style="max-width: 197px">
+                <div class="overflowelipses">
+                  {{ d.name }}
+                </div>
+              </td>
+              <td>
+                {{ d.id }}
+              </td>
+              <td>
+                {{ d.address }}
+              </td>
+              <td>
+                {{ d.mobileNo }}
+              </td>
+              <td>
+                {{ d.role }}
+              </td>
+              <td>
+                <div *ngIf="d.active == true">
+                  <label class="switch">
+                    <input id="activeButton" type="checkbox" checked disabled />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div *ngIf="d.active == false">
+                  <label class="switch">
+                    <input id="activeButton" type="checkbox" disabled />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </td>
+              <td>
+                {{ d.updatedAt | date: "dd-MM-yyyy" }}
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="allowAccess == true">
+    <div class="headertext">Employee List</div>
+    <div>
+      <button class="addButton" (click)="onNavigate()">
+        <img
+        src="../../assets/images/uploadIcon.svg"
+        alt="edit"
+        class="globeIcon"
+      />
+        <span>Add Employee</span>
+      </button>
+    </div>
+    <!-- <div>
+      <button class="pointcloudButton" (click)="onViewPointcloud()">
+        <img
+                      src="../../assets/images/globe.png"
+                      alt="edit"
+                      class="globeIcon"
+                    />
+          <span>Show Map</span>
+      </button>
+    </div> -->
+    <div class="userTable">
+      <table class="tableStyle">
+        <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Employee ID</th>
+            <th>Address</th>
+            <th>Mobile No</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Updated on</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="employeeList && employeeList.length > 0">
+            <tr *ngFor="let d of employeeList; let i = index">
+              <td style="max-width: 197px">
+                <div class="overflowelipses">
+                  {{ d.name }}
+                </div>
+              </td>
+              <td>
+                {{ d.id }}
+              </td>
+              <td>
+                {{ d.address }}
+              </td>
+              <td>
+                {{ d.mobileNo }}
+              </td>
+              <td>
+                {{ d.role }}
+              </td>
+              <td>
+                <div *ngIf="d.active == true">
+                  <label class="switch">
+                    <input
+                      id="activeButton"
+                      type="checkbox"
+                      (click)="oncheck(d.id)"
+                      checked
+                    />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div *ngIf="d.active == false">
+                  <label class="switch">
+                    <input
+                      id="activeButton"
+                      type="checkbox"
+                      (click)="oncheck(d.id)"
+                    />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </td>
+              <td>
+                {{ d.updatedAt | date: "dd-MM-yyyy" }}
+              </td>
+              <td>
+                <div>
+                  <div (click)="openPopup(d.id)">
+                    <img
+                      src="../../assets/images/upload.png"
+                      alt=""
+                      class="upload"
+                    />
+                  </div>
+
+                  <button
+                    ngbDropdownItem
+                    class="editbutton"
+                    (click)="onUpdate(d.id)"
+                  >
+                    <img
+                      src="../../assets/images/pencil.png"
+                      alt="edit"
+                      class="pencilIcon"
+                    />
+                  </button>
+                  <button
+                    ngbDropdownItem
+                    class="editbutton"
+                    (click)="onDelete(d.name)"
+                  >
+                    <img
+                      src="../../assets/images/bin.png"
+                      alt="delete"
+                      class="pencilIcon"
+                    />
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

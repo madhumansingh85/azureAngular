@@ -1,32 +1,51 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { MsalGuard } from '@azure/msal-angular';
+
+import { AddEmployeeComponent } from './employee-details/add-employee/add-employee.component';
+import { EmployeeListComponent } from './employee-details/employee-list/employee-list.component';
+import { UpdateEmployeeComponent } from './employee-details/update-employee/update-employee.component';
+import { PointcloudComponent } from './pointcloud/pointcloud.component';
 import { BrowserUtils } from '@azure/msal-browser';
-import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
-import { FailedComponent } from './failed/failed.component';
 
 const routes: Routes = [
   {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [MsalGuard]
+    path: 'home',
+    component: EmployeeListComponent,
+    canActivate: [MsalGuard],
+  },
+
+  {
+    path: 'employee',
+    component: AddEmployeeComponent,
+    canActivate: [MsalGuard],
+  },
+  {
+    path: 'updateEmployee/:id',
+    component: UpdateEmployeeComponent,
+    canActivate: [MsalGuard],
   },
   {
     path: '',
-    component: HomeComponent
+    component: EmployeeListComponent,
+    canActivate: [MsalGuard],
   },
   {
-    path: 'login-failed',
-    component: FailedComponent
-  }
+    path: 'pointcloud',
+    component: PointcloudComponent,
+    canActivate: [MsalGuard],
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    // Don't perform initial navigation in iframes or popups
-    initialNavigation: !BrowserUtils.isInIframe() && !BrowserUtils.isInPopup() ? 'enabledNonBlocking' : 'disabled' // Set to enabledBlocking to use Angular Universal
-  })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation:
+        !BrowserUtils.isInIframe() && !BrowserUtils.isInPopup()
+          ? 'enabledNonBlocking'
+          : 'disabled', // Set to enabledBlocking to use Angular Universal
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // apiURL: 'http://20.12.218.228/node1/',
+  apiURL: 'https://nodeapp1fordmp.azurewebsites.net/',
+  socketURL: 'https://nodeapp2fordmp.azurewebsites.net/',
 };
 
 /*
