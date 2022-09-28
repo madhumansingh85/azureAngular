@@ -5,7 +5,7 @@ import {
   NgbModal,
 } from '@ng-bootstrap/ng-bootstrap';
 import { FileuploadPopupComponentComponent } from 'src/app/fileupload-popup-component/fileupload-popup-component.component';
-import { SocketioService } from 'src/app/services/socketio.service';
+// import { SocketioService } from 'src/app/services/socketio.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -18,26 +18,14 @@ export class EmployeeListComponent implements OnInit {
   constructor(
     private employeeService: EmployeeServiceService,
     private modalService: NgbModal,
-    private socketIoService: SocketioService,
+    // private socketIoService: SocketioService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getEmployeeList();
-
-    this.employeeService.getRoles().subscribe(
-      (resp) => {
-        let accessRole = resp.roles[0];
-        if (accessRole === 'admin') {
-          this.allowAccess = true;
-        } else {
-          this.allowAccess = false;
-        }
-      },
-      (err) => {
-        console.log('HTTP Error', err);
-      }
-    );
+    this.allowAccess = true;
+    
   }
 
   getEmployeeList() {
@@ -69,20 +57,6 @@ export class EmployeeListComponent implements OnInit {
 
     data['id'] = empID;
     data['active'] = !selected.active;
-
-    this.socketIoService.sendstatus(data);
-
-    this.socketIoService.getNotification().subscribe(
-      (resp: any) => {
-        if (resp) {
-          this.employeeList = resp.rows;
-          console.log(resp.rows);
-        }
-      },
-      (err) => {
-        console.log('HTTP Error', err);
-      }
-    );
   }
   onDelete(name: string) {
     const selected = this.employeeList.filter((c: any) => c.name === name)[0];

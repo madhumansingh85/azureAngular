@@ -33,16 +33,16 @@ import { FileuploadPopupComponentComponent } from './fileupload-popup-component/
 
 
 const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigator.userAgent.indexOf("Trident/") > -1; // Remove this line to use Angular Universal
-import { SocketioService } from './services/socketio.service';
+// import { SocketioService } from './services/socketio.service';
 import { PointcloudComponent } from './pointcloud/pointcloud.component';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
    return new PublicClientApplication({
      auth: {
-       clientId: '8c38c59a-aeab-437e-9636-42b90e735f1e', // Prod enviroment. Uncomment to use. 
+       clientId: 'e6dc8545-f37d-4540-8a32-9c895e52cbfb', // Prod enviroment. Uncomment to use. 
       //  clientId: '8756c079-39cd-412c-8522-73b4f101a187', // PPE testing environment
       //  authority: 'https://login.microsoftonline.com/d29f8412-2bc2-4b21-a547-23791af29efb', // Prod environment. Uncomment to use.
-       authority: 'https://login.microsoftonline.com/cfc70b6b-7c82-4da0-8ea2-83b3a183ce20', // Prod environment. Uncomment to use.
+       authority: 'https://login.microsoftonline.com/cb0eedaa-f404-4620-9014-927f34519cd9', // Prod environment. Uncomment to use.
 
        // authority: 'https://login.windows-ppe.net/common', // PPE testing environment.
        redirectUri: '/',
@@ -66,8 +66,8 @@ export function MSALInstanceFactory(): IPublicClientApplication {
    const protectedResourceMap = new Map<string, Array<string>>();
    protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['user.read']); // Prod environment. Uncomment to use.
   //  protectedResourceMap.set('http://localhost:3000/*', ['api://9cd4887c-adfb-4966-8324-9629841da63c/access_as_user']);
-   protectedResourceMap.set('http://localhost:3000/*', ['api://cb3181db-0293-4651-b5d3-61a2b22736f4/general']);
-   protectedResourceMap.set('https://nodeapp1fordmp.azurewebsites.net/*', ['api://cb3181db-0293-4651-b5d3-61a2b22736f4/general']);
+  //  protectedResourceMap.set('http://localhost:3000/*', ['api://cb3181db-0293-4651-b5d3-61a2b22736f4/general']);
+  //  protectedResourceMap.set('https://nodeapp1fordmp.azurewebsites.net/*', ['api://cb3181db-0293-4651-b5d3-61a2b22736f4/general']);
 
 
    return {
@@ -84,7 +84,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
        'profile',
        // This is something WE KNOW NOW.
        // 'api://8756c079-39cd-412c-8522-73b4f101a187/General',
-       'api://cb3181db-0293-4651-b5d3-61a2b22736f4/general',
+      //  'api://cb3181db-0293-4651-b5d3-61a2b22736f4/general',
      // 'General'
    ]
      },
@@ -140,8 +140,8 @@ export function MSALInstanceFactory(): IPublicClientApplication {
       },
       MsalService,
       MsalGuard,
-      MsalBroadcastService,
-      SocketioService
+      MsalBroadcastService
+      // SocketioService
     ],
   
   //  providers: [MyserviceService],

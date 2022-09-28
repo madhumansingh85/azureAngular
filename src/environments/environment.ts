@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // apiURL: 'http://20.12.218.228/node1/',
-  apiURL: 'https://nodeapp1fordmp.azurewebsites.net/',
+  apiURL: 'https://azurenodedemo2.azurewebsites.net/',
   socketURL: 'https://nodeapp2fordmp.azurewebsites.net/',
 };
 

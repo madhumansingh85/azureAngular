@@ -1,16 +1,6 @@
 <div class="mainContainer">
   <div *ngIf="allowAccess == false">
     <div class="headertext">Employee List</div>
-    <div>
-      <button class="pointcloudButton" (click)="onViewPointcloud()">
-        <img
-                      src="../../assets/images/globe.png"
-                      alt="edit"
-                      class="pencilIcon"
-                    />
-          <span>Show Map</span>
-      </button>
-    </div>
     <div class="userTable">
       <table class="tableStyle">
         <thead>
@@ -79,16 +69,6 @@
         <span>Add Employee</span>
       </button>
     </div>
-    <!-- <div>
-      <button class="pointcloudButton" (click)="onViewPointcloud()">
-        <img
-                      src="../../assets/images/globe.png"
-                      alt="edit"
-                      class="globeIcon"
-                    />
-          <span>Show Map</span>
-      </button>
-    </div> -->
     <div class="userTable">
       <table class="tableStyle">
         <thead>
@@ -151,14 +131,6 @@
               </td>
               <td>
                 <div>
-                  <div (click)="openPopup(d.id)">
-                    <img
-                      src="../../assets/images/upload.png"
-                      alt=""
-                      class="upload"
-                    />
-                  </div>
-
                   <button
                     ngbDropdownItem
                     class="editbutton"
