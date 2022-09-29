@@ -37,9 +37,10 @@ const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigato
 import { PointcloudComponent } from './pointcloud/pointcloud.component';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
-   return new PublicClientApplication({
+   
+  return new PublicClientApplication({
      auth: {
-       clientId: '2519f16c-24c9-4c6e-8953-262be477185d', // Prod enviroment. Uncomment to use. 
+       clientId: 'd2187334-4e93-43f8-ae78-b657c9c90d2e', // Prod enviroment. Uncomment to use. 
       //  clientId: '8756c079-39cd-412c-8522-73b4f101a187', // PPE testing environment
       //  authority: 'https://login.microsoftonline.com/d29f8412-2bc2-4b21-a547-23791af29efb', // Prod environment. Uncomment to use.
        authority: 'https://login.microsoftonline.com/cb0eedaa-f404-4620-9014-927f34519cd9', // Prod environment. Uncomment to use.
