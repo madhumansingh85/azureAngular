@@ -40,7 +40,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
    
   return new PublicClientApplication({
      auth: {
-       clientId: 'd2187334-4e93-43f8-ae78-b657c9c90d2e', // Prod enviroment. Uncomment to use. 
+       clientId: '4ef3dc65-5de6-49f8-a0d6-ddce46c4a952', // Prod enviroment. Uncomment to use. 
       //  clientId: '8756c079-39cd-412c-8522-73b4f101a187', // PPE testing environment
       //  authority: 'https://login.microsoftonline.com/d29f8412-2bc2-4b21-a547-23791af29efb', // Prod environment. Uncomment to use.
        authority: 'https://login.microsoftonline.com/cb0eedaa-f404-4620-9014-927f34519cd9', // Prod environment. Uncomment to use.
